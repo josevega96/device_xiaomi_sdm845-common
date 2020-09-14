@@ -38,6 +38,10 @@ using android::sp;
 using android::status_t;
 using android::OK;
 
+// libhwbinder:
+using android::hardware::configureRpcThreadpool;
+using android::hardware::joinRpcThreadpool;
+
 // Generated HIDL files
 using android::hardware::power::V1_2::IPower;
 using android::hardware::power::V1_2::implementation::Power;
