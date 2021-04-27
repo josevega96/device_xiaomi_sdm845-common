@@ -6,7 +6,7 @@
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/halium.mk)
 
 # Get non-open-source specific aspects
 $(call inherit-product-if-exists, vendor/xiaomi/sdm845-common/sdm845-common-vendor.mk)
@@ -101,7 +101,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service \
-    Snap \
     vendor.qti.hardware.camera.device@1.0.vendor
 
 # Common init scripts
@@ -123,10 +122,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.contexthub@1.0-impl.generic \
     android.hardware.contexthub@1.0-service
-
-# Device-specific settings
-PRODUCT_PACKAGES += \
-    XiaomiParts
 
 # Display
 PRODUCT_PACKAGES += \
@@ -165,20 +160,16 @@ PRODUCT_PACKAGES += \
     android.hidl.manager@1.0 \
     android.hidl.manager@1.0_system
 
-# HotwordEnrollement app permissions
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/permissions/privapp-permissions-hotword.xml:system/etc/permissions/privapp-permissions-hotword.xml
-
 # IFAA manager
-PRODUCT_PACKAGES += \
-    org.ifaa.android.manager
+#PRODUCT_PACKAGES += \
+#    org.ifaa.android.manager
 
-PRODUCT_BOOT_JARS += \
-    org.ifaa.android.manager
+#PRODUCT_BOOT_JARS += \
+#    org.ifaa.android.manager
 
 # IMS
-PRODUCT_PACKAGES += \
-    ims-ext-common
+#PRODUCT_PACKAGES += \
+#    ims-ext-common
 
 # Input
 PRODUCT_COPY_FILES += \
@@ -192,10 +183,6 @@ PRODUCT_PACKAGES += \
 # Lights
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.xiaomi_sdm845
-
-# LiveDisplay
-PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.0-service-sdm
 
 # Media
 PRODUCT_PACKAGES += \
@@ -275,13 +262,6 @@ PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-service \
     libsensorndkbridge
 
-# Telephony
-PRODUCT_PACKAGES += \
-    telephony-ext
-
-PRODUCT_BOOT_JARS += \
-    telephony-ext
-
 # TextClassifier
 PRODUCT_PACKAGES += \
     textclassifier.bundle1
@@ -324,6 +304,3 @@ PRODUCT_PACKAGES += \
     libdisplayconfig \
     libnl \
     libqdMetaData.system
-
-PRODUCT_BOOT_JARS += \
-    WfdCommon
